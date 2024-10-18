@@ -1,5 +1,9 @@
 # Databricks notebook source
-# MAGIC %run /Workspace/Users/sameerdeshpande51@gmail.com/Day1/includes
+v=dbutils.widgets.get("environment")
+
+# COMMAND ----------
+
+# MAGIC %run /Workspace/Users/sameerdeshpande51@gmail.com/Databrickslearning/Day1/includes
 
 # COMMAND ----------
 
@@ -16,3 +20,11 @@ df1.write.mode("overwrite").saveAsTable("order_dates")
 # COMMAND ----------
 
 
+
+# COMMAND ----------
+
+df2=df1.withColumn("environment",lit(v))
+
+# COMMAND ----------
+
+df2.display()
